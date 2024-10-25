@@ -4,7 +4,16 @@ export const addNumbers: (numbers: string) => number = (numbers: string) => {
     return 0;
   }
 
-  const delimeter = new RegExp(/[,\n]+/);
+  let customDelimeter = ",";
+
+  if (numbers.startsWith("//")) {
+    customDelimeter = numbers[2];
+    // to remove the //[custom delimeter]\n from the string
+    numbers = numbers.slice(4);
+  }
+
+  //   const delimeter = new RegExp(/[,\n]+/);
+  const delimeter = new RegExp("[" + customDelimeter + "\n]+");
 
   const individualNumbers = numbers.split(delimeter);
 

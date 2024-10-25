@@ -23,4 +23,13 @@ describe("Tests for addNumber function", () => {
     expect(addNumbers(testString1)).toBe(6);
     expect(addNumbers(testString2)).toBe(15);
   });
+  it("should return the sum when delimeted by a new line char and with a custom delimeter passed like this : //[customdelimeter]", () => {
+    const testString1 = "//;\n1;2";
+    const testString2 = "//(\n1(2(4(9";
+    const testString3 = "//k\n1k2k4k9k5";
+
+    expect(addNumbers(testString1)).toBe(3);
+    expect(addNumbers(testString2)).toBe(16);
+    expect(addNumbers(testString3)).toBe(21);
+  });
 });
