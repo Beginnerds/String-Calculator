@@ -27,9 +27,13 @@ describe("Tests for addNumber function", () => {
     const testString1 = "//;\n1;2";
     const testString2 = "//(\n1(2(4(9";
     const testString3 = "//k\n1k2k4k9k5";
+    const testString4 = "//***\n1***2***3";
+    const testString5 = "//***\n//!!\n1***2!!3";
 
     expect(addNumbers(testString1)).toBe(3);
     expect(addNumbers(testString2)).toBe(16);
     expect(addNumbers(testString3)).toBe(21);
+    expect(addNumbers(testString4)).toBe(6);
+    expect(addNumbers(testString5)).toBe(6);
   });
 });

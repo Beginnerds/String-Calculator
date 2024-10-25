@@ -7,12 +7,10 @@ export const addNumbers: (numbers: string) => number = (numbers: string) => {
   let customDelimeter = ",";
 
   if (numbers.startsWith("//")) {
-    customDelimeter = numbers[2];
-    // to remove the //[custom delimeter]\n from the string
-    numbers = numbers.slice(4);
+    const customDelimeterArr = numbers.match(/\/\/(.*?)\n/g);
+    customDelimeter = customDelimeterArr?.join()!;
   }
 
-  //   const delimeter = new RegExp(/[,\n]+/);
   const delimeter = new RegExp("[" + customDelimeter + "\n]+");
 
   const individualNumbers = numbers.split(delimeter);
