@@ -15,6 +15,19 @@ export const addNumbers: (numbers: string) => number = (numbers: string) => {
 
   const individualNumbers = numbers.split(delimeter);
 
+  const negativeNumbers: string[] = [];
+
+  individualNumbers.forEach((item) => {
+    if (Number(item) < 0) {
+      negativeNumbers.push(item);
+    }
+  });
+
+  // there are some negative numbers in the string, we should throw
+  if (negativeNumbers.length > 0) {
+    throw new Error(negativeNumbers.join(","));
+  }
+
   const sum = individualNumbers.reduce((prev, curr) => {
     return Number(prev) + Number(curr);
   }, 0);
