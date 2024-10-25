@@ -6,4 +6,21 @@ describe("Tests for addNumber function", () => {
   it("should return 0 when passed an empty string", () => {
     expect(addNumbers("")).toBe(0);
   });
+  it("should return the sum of numbers for both single digit and double digit numbers passed as a string separated by a ','", () => {
+    {
+      const testString1 = "1";
+      const testString2 = "1,2,3,4,5";
+
+      expect(addNumbers(testString1)).toBe(1);
+      expect(addNumbers(testString2)).toBe(15);
+    }
+  });
+
+  it("should return the sum when delimeted by a new line char (\n) along with a comma", () => {
+    const testString1 = "1\n2,3";
+    const testString2 = "1\n2,3,4\n5";
+
+    expect(addNumbers(testString1)).toBe(6);
+    expect(addNumbers(testString2)).toBe(15);
+  });
 });
