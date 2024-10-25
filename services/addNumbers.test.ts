@@ -48,4 +48,12 @@ describe("Tests for addNumber function", () => {
       addNumbers(testString2);
     }).toThrow("-5,-3");
   });
+
+  it("should ignore number greater than 1000", () => {
+    const testString1 = "1,2,3,4,1001,5,1002";
+    const testString2 = "2000,5,3000,4,1001,5,1002";
+
+    expect(addNumbers(testString1)).toBe(15);
+    expect(addNumbers(testString2)).toBe(14);
+  });
 });

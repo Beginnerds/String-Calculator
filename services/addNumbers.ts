@@ -29,6 +29,9 @@ export const addNumbers: (numbers: string) => number = (numbers: string) => {
   }
 
   const sum = individualNumbers.reduce((prev, curr) => {
+    prev = Number(prev) > 1000 ? 0 : prev;
+    curr = Number(curr) > 1000 ? "0" : curr;
+
     return Number(prev) + Number(curr);
   }, 0);
 
